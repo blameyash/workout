@@ -1,5 +1,5 @@
 const CACHE_PREFIX = 'yash-strength-';
-const CACHE_NAME = `${CACHE_PREFIX}v15`;
+const CACHE_NAME = `${CACHE_PREFIX}v16`;
 const APP_SHELL = ['./','./index.html','./manifest.webmanifest','./pwa-register.js','./icons/apple-touch-icon-v2.png','./icons/icon.svg'];
 self.addEventListener('install', event => event.waitUntil((async () => { const cache = await caches.open(CACHE_NAME); await cache.addAll(APP_SHELL); await self.skipWaiting(); })()));
 self.addEventListener('activate', event => event.waitUntil((async () => { const keys = await caches.keys(); await Promise.all(keys.filter(key => key.startsWith(CACHE_PREFIX) && key !== CACHE_NAME).map(key => caches.delete(key))); await self.clients.claim(); })()));
