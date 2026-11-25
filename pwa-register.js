@@ -47,7 +47,8 @@
     const selector = `.m-dots i[style*="--c:var(--c-${phase})"], .dot[style*="--c:var(--c-${phase})"]`;
     rules.push(`${selector}{--c:${color}!important;background:${color}!important;background-color:${color}!important}`);
   }
-  rules.push('.m-dots i{width:8px!important;height:8px!important}');
+  rules.push('.m-dots i{width:8px!important;height:8px!important;min-width:8px!important;flex:0 0 8px!important;border-radius:50%!important}');
+  rules.push('.dot[style*="--c:var(--c-"]{display:inline-block!important;width:8px!important;height:8px!important;min-width:8px!important;min-height:8px!important;flex:0 0 8px!important;aspect-ratio:1/1!important;border-radius:50%!important}');
   style.textContent = rules.join('\n');
   document.head.appendChild(style);
 })();
