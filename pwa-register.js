@@ -38,16 +38,18 @@
   }
 })();
 
-// Brighten month timeline marker fills while retaining their original phase-coloured outlines.
+// Apply saturated phase fills to every phase marker and retain the original translucent outline.
 (() => {
   const style = document.createElement('style');
+  const markers = '.m-dots i, .w-lbl .dot, .status .dot, .w-note .dot, .tbl .wn .dot, .prose .warn .dot';
   style.textContent = [
-    '.months .m-dots i[style*="c-start"]{background:#3b9cff!important;box-shadow:0 0 0 1px var(--phase-edge)!important}',
-    '.months .m-dots i[style*="c-build"]{background:#22d65e!important;box-shadow:0 0 0 1px var(--phase-edge)!important}',
-    '.months .m-dots i[style*="c-strength"]{background:#a78bfa!important;box-shadow:0 0 0 1px var(--phase-edge)!important}',
-    '.months .m-dots i[style*="c-heavy"]{background:#ff8a32!important;box-shadow:0 0 0 1px var(--phase-edge)!important}',
-    '.months .m-dots i[style*="c-easy"]{background:#ffd21f!important;box-shadow:0 0 0 1px var(--phase-edge)!important}',
-    '.months .m-dots i[style*="c-peak"]{background:#ff5f91!important;box-shadow:0 0 0 1px var(--phase-edge)!important}'
+    `${markers}{border:1px solid var(--phase-edge)!important;box-shadow:none!important;box-sizing:content-box!important}`,
+    `${markers}[style*="c-start"]{background:#3b9cff!important}`,
+    `${markers}[style*="c-build"]{background:#22d65e!important}`,
+    `${markers}[style*="c-strength"]{background:#a78bfa!important}`,
+    `${markers}[style*="c-heavy"]{background:#ff8a32!important}`,
+    `${markers}[style*="c-easy"]{background:#ffd21f!important}`,
+    `${markers}[style*="c-peak"]{background:#ff5f91!important}`
   ].join('');
   document.head.appendChild(style);
 })();
