@@ -3,7 +3,9 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; script-src 'self' 'sha256-12M+Bm7NKa8e9ff4iAsWVGnsGBmf2fMbevVPD/tPbic=' 'sha256-K1hOwuvOVSO6baIqk9HDjVilCfDC0GC2J3SU7fHNJAw='; worker-src 'self'; img-src 'self' data:; font-src 'self' data:; manifest-src 'self'; connect-src 'self'; form-action 'self'; object-src 'none'">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; base-uri 'none'; script-src 'self' 'sha256-12M+Bm7NKa8e9ff4iAsWVGnsGBmf2fMbevVPD/tPbic=' 'sha256-K1hOwuvOVSO6baIqk9HDjVilCfDC0GC2J3SU7fHNJAw='">
+  <meta name="apple-mobile-web-app-title" content="Workout Plan">
+  <link rel="manifest" href="./manifest.webmanifest">
   <meta name="color-scheme" content="dark light">
   <meta id="browser-tint" name="theme-color" content="#151517">
   <script>
@@ -19,8 +21,7 @@
   document.getElementById("browser-tint").content = light ? "#f8f8fa" : "#151517";
 })();
 </script>
-  <link rel="manifest" href="./manifest.webmanifest">
-  <title>Yash · Workout Plan</title>
+  <title>Workout Plan</title>
   <style>
 /* Neutral surfaces and blue navigation. Dark is the first-open appearance. */
 :root{
@@ -49,8 +50,8 @@
   --nav-solid:#f8f8fa; --nav-ink:#4d4d52; --nav-ink-hover:#1d1d1f;
   --mode-active:#fff; --foot-ink:#585860; --foot-link:var(--link); --foot-title:var(--ink); --focus:var(--link);
   --phase-edge:rgba(0,0,0,.18);
-  --c-start:#008CFF; --c-build:#00E639; --c-strength:#A000FF;
-  --c-heavy:#FF7900; --c-easy:#FFD500; --c-peak:#FF2038;
+  --c-start:#009DFF; --c-build:#00FF41; --c-strength:#B44DFF;
+  --c-heavy:#FF8500; --c-easy:#FFE500; --c-peak:#FF3045;
 }
 /* The sibling rule above also supports light mode in script-free file readers. */
 html:has(#theme-light:checked){color-scheme:light;background:#fff}
@@ -202,8 +203,6 @@ input[name="lift"]:enabled:checked ~ input[name="row"]:enabled:checked ~ main .t
 .plegend .nm{font-weight:600}
 .plegend .wk{color:var(--ink-2);font-weight:400;font-variant-numeric:tabular-nums}
 .plegend .ds{grid-column:2;font-size:14px;line-height:1.4285914286;letter-spacing:-.016em;color:var(--ink-2)}
-.plegend li{grid-template-columns:8px minmax(0,1fr);align-items:start}
-.plegend .dot{display:block;box-sizing:border-box;width:8px;height:8px;min-width:8px;max-width:8px;min-height:8px;max-height:8px;aspect-ratio:1/1;border-radius:50%;align-self:start;margin-top:5px}
 
 /* weights table */
 .tools{display:grid;gap:10px}
@@ -1000,7 +999,8 @@ html:not(.day-js) #workout-14-0:target ~ main #view-plan .s-14-0,
 html:not(.day-js) #workout-14-1:target ~ main #view-plan .s-14-1,
 html:not(.day-js) #workout-14-2:target ~ main #view-plan .s-14-2,
 html:not(.day-js) #workout-14-3:target ~ main #view-plan .s-14-3,
-html:not(.day-js) #workout-14-4:target ~ main #view-plan .s-14-4,html:not(.day-js) #workout-14-5:target ~ main #view-plan .s-14-5,
+html:not(.day-js) #workout-14-4:target ~ main #view-plan .s-14-4,
+html:not(.day-js) #workout-14-5:target ~ main #view-plan .s-14-5,
 html:not(.day-js) #workout-14-6:target ~ main #view-plan .s-14-6,
 html:not(.day-js) #workout-15-0:target ~ main #view-plan .s-15-0,
 html:not(.day-js) #workout-15-1:target ~ main #view-plan .s-15-1,
@@ -1086,6 +1086,16 @@ html:not(.day-js) #workout-26-3:target ~ main #view-plan .s-26-3,
 html:not(.day-js) #workout-26-4:target ~ main #view-plan .s-26-4,
 html:not(.day-js) #workout-26-5:target ~ main #view-plan .s-26-5,
 html:not(.day-js) #workout-26-6:target ~ main #view-plan .s-26-6{display:grid!important}
+
+/* Consistent phase fills across Plan, Guide and Weights, in either appearance. */
+.dot[style="--c:var(--c-start)"],.m-dots i[style="--c:var(--c-start)"],.pm[style="--c:var(--c-start)"]::before{background-color:#009DFF !important}
+.dot[style="--c:var(--c-build)"],.m-dots i[style="--c:var(--c-build)"],.pm[style="--c:var(--c-build)"]::before{background-color:#00FF41 !important}
+.dot[style="--c:var(--c-strength)"],.m-dots i[style="--c:var(--c-strength)"],.pm[style="--c:var(--c-strength)"]::before{background-color:#B44DFF !important}
+.dot[style="--c:var(--c-heavy)"],.m-dots i[style="--c:var(--c-heavy)"],.pm[style="--c:var(--c-heavy)"]::before{background-color:#FF8500 !important}
+.dot[style="--c:var(--c-easy)"],.m-dots i[style="--c:var(--c-easy)"],.pm[style="--c:var(--c-easy)"]::before{background-color:#FFE500 !important}
+.dot[style="--c:var(--c-peak)"],.m-dots i[style="--c:var(--c-peak)"],.pm[style="--c:var(--c-peak)"]::before{background-color:#FF3045 !important}
+.status .dot{background-color:#009DFF !important}
+.prose .warn .dot{background-color:#FF3045 !important}
 </style>
 </head>
 <body>
@@ -1999,7 +2009,8 @@ html:not(.day-js) #workout-26-6:target ~ main #view-plan .s-26-6{display:grid!im
         <a class="turn-link turn-d2" href="#workout-26-3" aria-label="Next day, Thursday 29 April, week 26"><span class="turn-dest">Thursday 29 April</span><span class="turn-action">Next day <span class="turn-arrow" aria-hidden="true">›</span></span></a>
         <a class="turn-link turn-d3" href="#workout-26-4" aria-label="Next day, Friday 30 April, week 26"><span class="turn-dest">Friday 30 April</span><span class="turn-action">Next day <span class="turn-arrow" aria-hidden="true">›</span></span></a>
         <a class="turn-link turn-d4" href="#workout-26-5" aria-label="Next day, Saturday 1 May, week 26"><span class="turn-dest">Saturday 1 May</span><span class="turn-action">Next day <span class="turn-arrow" aria-hidden="true">›</span></span></a>
-        <a class="turn-link turn-d5" href="#workout-26-6" aria-label="Next day, Sunday 2 May, week 26"><span class="turn-dest">Sunday 2 May</span><span class="turn-action">Next day <span class="turn-arrow" aria-hidden="true">›</span></span></a>      </div>
+        <a class="turn-link turn-d5" href="#workout-26-6" aria-label="Next day, Sunday 2 May, week 26"><span class="turn-dest">Sunday 2 May</span><span class="turn-action">Next day <span class="turn-arrow" aria-hidden="true">›</span></span></a>
+      </div>
     </nav>
   </div>
 </footer>
@@ -2227,5 +2238,5 @@ html:not(.day-js) #workout-26-6:target ~ main #view-plan .s-26-6{display:grid!im
   });
 })();
 </script>
-<script src="./pwa-register.js"></script>
+  <script src="./pwa-register.js"></script>
 </body></html>
