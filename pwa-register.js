@@ -33,12 +33,12 @@
 (() => {
   const style = document.createElement('style');
   const phases = {
-    start: '#3b9cff',
-    build: '#22d65e',
-    strength: '#a78bfa',
-    heavy: '#ff8a32',
-    easy: '#ffd21f',
-    peak: '#ff5f91'
+    start: '#009DFF',
+    build: '#00FF41',
+    strength: '#B400FF',
+    heavy: '#FF9500',
+    easy: '#FFE500',
+    peak: '#FF0000'
   };
   const rules = [
     '.m-dots i[style*="--c:var(--c-"], .dot[style*="--c:var(--c-"]{box-shadow:0 0 0 1px var(--phase-edge)!important}'
