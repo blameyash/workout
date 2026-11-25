@@ -41,7 +41,15 @@
 // Give the month timeline markers brighter, more saturated versions of their phase colours.
 (() => {
   const style = document.createElement('style');
-  style.textContent = '.m-dots i{filter:saturate(1.55) brightness(1.22)}';
+// Month markers use explicit saturated colours, independent of the muted theme palette.
+  style.textContent = [
+    '.months .m-dots i[style*="c-start"]{background:#3b9cff!important;box-shadow:0 0 0 1px #3b9cff!important}',
+    '.months .m-dots i[style*="c-build"]{background:#22d65e!important;box-shadow:0 0 0 1px #22d65e!important}',
+    '.months .m-dots i[style*="c-strength"]{background:#a78bfa!important;box-shadow:0 0 0 1px #a78bfa!important}',
+    '.months .m-dots i[style*="c-heavy"]{background:#ff8a32!important;box-shadow:0 0 0 1px #ff8a32!important}',
+    '.months .m-dots i[style*="c-easy"]{background:#ffd21f!important;box-shadow:0 0 0 1px #ffd21f!important}',
+    '.months .m-dots i[style*="c-peak"]{background:#ff5f91!important;box-shadow:0 0 0 1px #ff5f91!important}'
+  ].join('');
   document.head.appendChild(style);
 })();
 
