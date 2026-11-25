@@ -38,18 +38,19 @@
   }
 })();
 
-// Apply saturated phase fills to every phase marker and retain the original translucent outline.
+// Bright phase fills on every marker, with the plan's original theme-aware outline.
 (() => {
   const style = document.createElement('style');
-  const markers = '.m-dots i, .w-lbl .dot, .status .dot, .w-note .dot, .tbl .wn .dot, .prose .warn .dot';
+  const marker = 'i[style*="--c:var(--c-"], .dot[style*="--c:var(--c-"]';
   style.textContent = [
-    `${markers}{border:1px solid var(--phase-edge)!important;box-shadow:none!important;box-sizing:content-box!important}`,
-    `${markers}[style*="c-start"]{background:#3b9cff!important}`,
-    `${markers}[style*="c-build"]{background:#22d65e!important}`,
-    `${markers}[style*="c-strength"]{background:#a78bfa!important}`,
-    `${markers}[style*="c-heavy"]{background:#ff8a32!important}`,
-    `${markers}[style*="c-easy"]{background:#ffd21f!important}`,
-    `${markers}[style*="c-peak"]{background:#ff5f91!important}`
+    `${marker}{outline:1px solid var(--phase-edge)!important;outline-offset:0!important;box-shadow:none!important}`,
+    'i.m-dots, .m-dots i{width:8px!important;height:8px!important}',
+    '[style*="--c:var(--c-start)"]{background-color:#3b9cff!important}',
+    '[style*="--c:var(--c-build)"]{background-color:#22d65e!important}',
+    '[style*="--c:var(--c-strength)"]{background-color:#a78bfa!important}',
+    '[style*="--c:var(--c-heavy)"]{background-color:#ff8a32!important}',
+    '[style*="--c:var(--c-easy)"]{background-color:#ffd21f!important}',
+    '[style*="--c:var(--c-peak)"]{background-color:#ff5f91!important}'
   ].join('');
   document.head.appendChild(style);
 })();
