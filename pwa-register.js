@@ -38,6 +38,13 @@
   }
 })();
 
+// Give the month timeline markers brighter, more saturated versions of their phase colours.
+(() => {
+  const style = document.createElement('style');
+  style.textContent = '.m-dots i{filter:saturate(1.55) brightness(1.22)}';
+  document.head.appendChild(style);
+})();
+
 // Register the offline service worker.
 if ('serviceWorker' in navigator && location.protocol !== 'file:') {
   window.addEventListener('load', () => {
