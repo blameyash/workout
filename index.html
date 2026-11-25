@@ -34,8 +34,8 @@
   --nav-solid:#151517; --nav-ink:#c3c3cb; --nav-ink-hover:#f5f5f7;
   --mode-active:#444449; --foot-ink:#b0b0b8; --foot-link:var(--link); --foot-title:var(--ink); --focus:var(--link);
   --phase-edge:rgba(255,255,255,.16);
-  --c-start:#009DFF; --c-build:#00FF41; --c-strength:#B44DFF;
-  --c-heavy:#FF8500; --c-easy:#FFE500; --c-peak:#FF3045;
+  --c-start:#009DFF; --c-build:#00FF41; --c-strength:#B400FF;
+  --c-heavy:#FF9500; --c-easy:#FFE500; --c-peak:#FF0000;
   --font-display:-apple-system,BlinkMacSystemFont,"SF Pro Display","Helvetica Neue",Helvetica,Arial,sans-serif;
   --font-text:-apple-system,BlinkMacSystemFont,"SF Pro Text","Helvetica Neue",Helvetica,Arial,sans-serif;
   background:var(--page);
@@ -50,8 +50,8 @@
   --nav-solid:#f8f8fa; --nav-ink:#4d4d52; --nav-ink-hover:#1d1d1f;
   --mode-active:#fff; --foot-ink:#585860; --foot-link:var(--link); --foot-title:var(--ink); --focus:var(--link);
   --phase-edge:rgba(0,0,0,.18);
-  --c-start:#009DFF; --c-build:#00FF41; --c-strength:#B44DFF;
-  --c-heavy:#FF8500; --c-easy:#FFE500; --c-peak:#FF3045;
+  --c-start:#009DFF; --c-build:#00FF41; --c-strength:#B400FF;
+  --c-heavy:#FF9500; --c-easy:#FFE500; --c-peak:#FF0000;
 }
 /* The sibling rule above also supports light mode in script-free file readers. */
 html:has(#theme-light:checked){color-scheme:light;background:#fff}
@@ -1090,12 +1090,12 @@ html:not(.day-js) #workout-26-6:target ~ main #view-plan .s-26-6{display:grid!im
 /* Consistent phase fills across Plan, Guide and Weights, in either appearance. */
 .dot[style="--c:var(--c-start)"],.m-dots i[style="--c:var(--c-start)"],.pm[style="--c:var(--c-start)"]::before{background-color:#009DFF !important}
 .dot[style="--c:var(--c-build)"],.m-dots i[style="--c:var(--c-build)"],.pm[style="--c:var(--c-build)"]::before{background-color:#00FF41 !important}
-.dot[style="--c:var(--c-strength)"],.m-dots i[style="--c:var(--c-strength)"],.pm[style="--c:var(--c-strength)"]::before{background-color:#B44DFF !important}
-.dot[style="--c:var(--c-heavy)"],.m-dots i[style="--c:var(--c-heavy)"],.pm[style="--c:var(--c-heavy)"]::before{background-color:#FF8500 !important}
+.dot[style="--c:var(--c-strength)"],.m-dots i[style="--c:var(--c-strength)"],.pm[style="--c:var(--c-strength)"]::before{background-color:#B400FF !important}
+.dot[style="--c:var(--c-heavy)"],.m-dots i[style="--c:var(--c-heavy)"],.pm[style="--c:var(--c-heavy)"]::before{background-color:#FF9500 !important}
 .dot[style="--c:var(--c-easy)"],.m-dots i[style="--c:var(--c-easy)"],.pm[style="--c:var(--c-easy)"]::before{background-color:#FFE500 !important}
-.dot[style="--c:var(--c-peak)"],.m-dots i[style="--c:var(--c-peak)"],.pm[style="--c:var(--c-peak)"]::before{background-color:#FF3045 !important}
+.dot[style="--c:var(--c-peak)"],.m-dots i[style="--c:var(--c-peak)"],.pm[style="--c:var(--c-peak)"]::before{background-color:#FF0000 !important}
 .status .dot{background-color:#009DFF !important}
-.prose .warn .dot{background-color:#FF3045 !important}
+.prose .warn .dot{background-color:#FF0000 !important}
 </style>
 </head>
 <body>
